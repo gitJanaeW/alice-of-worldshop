@@ -1,0 +1,44 @@
+:root {
+    --pink: #f15189
+    --bg: #f7f7f7
+}
+
+html {
+    margin: 0;
+}
+
+body {
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+nav li {
+    list-style: none;
+    display: inline;
+    padding: 5px;
+    margin: 4px;
+}
+
+.beside {
+    display: flex;
+    align-items: center;
+}
+
+nav {
+    /* color: white; */
+    background-color: var(--bg);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-height: 100px;
+    padding: 0 10px 0 0;
+}
+
+nav h1 {
+    font-size: medium;
+}
+
+.logo {
+    max-height: 25px;
+    margin: 10px;
+    border-radius: 5px;
+}
