@@ -1,8 +1,97 @@
 :root {
-    --pink: #f15189
-    --bg: #f7f7f7
+    --pink: #f15189;
+    --bg: #f7f7f7;
 }
 
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem 8rem;
+    background-color: var(--bg);
+}
+
+.hamburger {
+    display: none;
+}
+
+.bar {
+    display: block;
+    width: 20px;
+    height: 2px;
+    margin: 5px auto;
+    -webkit-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+    background-color: #101010;
+}
+
+.nav-menu {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+nav li {
+    font-size: small;
+    padding: 5px;
+    margin: 4px;
+}
+
+nav li:hover{
+    color: var(--pink);
+}
+
+.logo {
+    max-height: 25px;
+    margin-right: 10px;
+    border-radius: 5px;
+}
+.beside {
+    display: flex;
+    align-items: center;
+}
+
+
+@media only screen and (max-width: 570px) {
+    .nav-menu {
+        position: fixed;
+        left: -100%;
+        top: 5rem;
+        flex-direction: column;
+        background-color: var(--bg);
+        width: 100%;
+        border-radius: 10px;
+        text-align: center;
+        transition: 0.3s;
+        box-shadow:
+            0 10px 27px rgba(0, 0, 0, 0.05);
+    }
+
+    .nav-menu.active {
+        left: 0;
+    }
+
+    .nav-item {
+        margin: 2.5rem 0;
+    }
+
+    .hamburger {
+        display: block;
+        cursor: pointer;
+    }
+    .hamburger.active .bar:nth-child(2) {
+        opacity: 0;
+    }
+
+    .hamburger.active .bar:nth-child(1) {
+        transform: translateY(7px) rotate(45deg);
+    }
+
+    .hamburger.active .bar:nth-child(3) {
+        transform: translateY(-7px) rotate(-45deg);
+    }
+}
+/* 
 html {
     margin: 0;
 }
@@ -18,27 +107,21 @@ nav li {
     margin: 4px;
 }
 
-.beside {
-    display: flex;
-    align-items: center;
-}
+
 
 nav {
-    /* color: white; */
+    color: white;
     background-color: var(--bg);
     display: flex;
     justify-content: space-between;
     align-items: center;
     max-height: 100px;
     padding: 0 10px 0 0;
+    margin: 0 6%;
 }
 
 nav h1 {
     font-size: medium;
 }
 
-.logo {
-    max-height: 25px;
-    margin: 10px;
-    border-radius: 5px;
-}
+ */

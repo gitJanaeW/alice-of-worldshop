@@ -1,4 +1,5 @@
 const path = require('path');
+const webpack = require("webpack");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = {
@@ -48,5 +49,8 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: path.join(__dirname, "client/public", "index.html"),
     }),
+    new webpack.ProvidePlugin({
+      "React": "react",
+   }),
   ]
 }
