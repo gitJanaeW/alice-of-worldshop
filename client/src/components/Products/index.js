@@ -1,9 +1,16 @@
+import product from "../../../public/product.jpg"
+
 export default function Products() {
     return(
-        <>
-            <div>
-                <h1>Welcome to Alice of ShopWorld</h1>
-            </div>
-        </>
+        <section className="beside landing">
+                <div>
+                    <h1 className="title">Welcome to Alice of ShopWorld</h1>
+                    <p>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce eu odio id neque sollicitudin congue. Vestibulum sollicitudin ac metus semper hendrerit. Ut nec tortor ut dolor pretium scelerisque. Quisque fringilla vitae diam rutrum varius. Vivamus molestie tempus mollis. Aenean bibendum tellus fermentum, bibendum ante ut, dictum felis. Fusce iaculis aliquam tristique.
+                    </p>
+                    <button>Shop Now</button>
+                </div>
+                <img className="landing-img" src={product}/>
+        </section>
     );
 };
