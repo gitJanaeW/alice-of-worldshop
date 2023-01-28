@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
-import logo from "../../../public/logo.jpg";
+import { Link } from "react-router-dom";
+import logo from "../../../public/logo2.jpg";
+import cartIcon from "../../../public/cart.png";
 
 export default function Nav() {
     const [isOpen, setIsOpen] = useState(false);
@@ -25,8 +27,15 @@ export default function Nav() {
                     <h1>ALICE OF SHOPWORLD</h1>
                 </div>
                 <ul className={`nav-menu ${isOpen ? "active" : ""}`}>
-                    <li className="nav-link">Products</li>
-                    <li className="nav-link">My Cart</li>
+                    <Link to={"/"}>
+                        <li className="nav-link">Home</li>
+                    </Link>
+                    <Link to={"/products"}>
+                        <li className="nav-link">Products</li>
+                    </Link>
+                    <li className="nav-link">
+                        <img className="cart-icon" src={cartIcon}/>
+                    </li>
                 </ul>
                 <div onClick={toggleNav} onBlur={toggleNav} className={`hamburger ${isOpen ? "active" : ""}`}>
                     <span className="bar"></span>
