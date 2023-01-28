@@ -3,8 +3,9 @@ import {BrowserRouter, Routes, Route} from "react-router-dom";
 import {BeatLoader} from 'react-spinners';
 import Nav from "./components/Nav";
 import Landing from "./components/Landing";
+import Products from "./components/Products";
 
-const Products = lazy(() => import("./components/Products"));
+// const Products = lazy(() => import("./components/Products"));
 
 function App() {
     return (
@@ -12,8 +13,8 @@ function App() {
             <Nav/>
             {/* <Suspense fallback={<BeatLoader color={"#123abc"} loading={true}/>}> */}
                 <Routes>
-                    <Route path="/" element={<Landing/>}/>
-                    <Route path="/" element={<Products/>}/>
+                    <Route path="/products" element={<Landing/>}/>
+                    <Route path="/products" element={<Products/>}/>
                 </Routes>
             {/* </Suspense> */}
         </BrowserRouter>

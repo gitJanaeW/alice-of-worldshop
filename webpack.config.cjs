@@ -43,6 +43,16 @@ module.exports = {
     ]
   },
   resolve: {
+    fallback: {
+      "http": require.resolve("stream-http"),
+      "https": require.resolve("https-browserify"),
+      "util": require.resolve("util/"),
+      // "url": require,
+      "crypto": require.resolve("crypto-browserify"),
+      "os": require.resolve("os-browserify/browser"),
+      "path": require.resolve("path-browserify"),
+      "stream": require.resolve("stream-browserify"),
+    },
     extensions: ["*", ".js", "jsx"],
   },
   plugins: [

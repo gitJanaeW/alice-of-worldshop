@@ -1,16 +1,15 @@
-import product from "../../../public/product.jpg"
+const fs = require("fs-extra");
+const sdk = require("api")('@chimoney/v0.2.1#2w2jenlbc6ubix');
+sdk.auth("5fa47041cf1bca32b11f72a3bac177bcbec210479c06821401b5e3501ca7e262");
+
+console.log(sdk);
 
 export default function Products() {
-    return(
-        <section className="">
-                <div>
-                    <h1 className="title">Welcome to Alice of ShopWorld</h1>
-                    <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce eu odio id neque sollicitudin congue. Vestibulum sollicitudin ac metus semper hendrerit. Ut nec tortor ut dolor pretium scelerisque. Quisque fringilla vitae diam rutrum varius. Vivamus molestie tempus mollis. Aenean bibendum tellus fermentum, bibendum ante ut, dictum felis. Fusce iaculis aliquam tristique.
-                    </p>
-                    <button>Shop Now</button>
-                </div>
-                <img className="landing-img" src={product}/>
+    const [products, setProducts] = useState(null);
+
+    return (
+        <section id="products">
+            <p>Hi</p>
         </section>
     );
 };
