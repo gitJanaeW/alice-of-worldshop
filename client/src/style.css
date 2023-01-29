@@ -168,6 +168,11 @@ nav {
     text-align: center;
 }
 
+/* CART */
+.cart {
+}
+
+
 /* MEDIA QUERIES */
 
 @media only screen and (max-width: 570px) {

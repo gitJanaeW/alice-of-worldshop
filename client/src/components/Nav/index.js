@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, lazy } from "react";
 import { Link } from "react-router-dom";
 import logo from "../../../public/logo2.jpg";
 import cartIcon from "../../../public/cart.png";
@@ -34,7 +34,9 @@ export default function Nav() {
                         <li className="nav-link">Products</li>
                     </Link>
                     <li className="nav-link">
-                        <img className="cart-icon" src={cartIcon}/>
+                        <Link to={"/checkout"}>
+                            <img className="cart-icon" src={cartIcon}/>
+                        </Link>
                     </li>
                 </ul>
                 <div onClick={toggleNav} onBlur={toggleNav} className={`hamburger ${isOpen ? "active" : ""}`}>
