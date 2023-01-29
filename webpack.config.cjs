@@ -44,10 +44,11 @@ module.exports = {
   },
   resolve: {
     fallback: {
+      "fs": false,
+      "process": false,
       "http": require.resolve("stream-http"),
       "https": require.resolve("https-browserify"),
       "util": require.resolve("util/"),
-      // "url": require,
       "crypto": require.resolve("crypto-browserify"),
       "os": require.resolve("os-browserify/browser"),
       "path": require.resolve("path-browserify"),
@@ -61,6 +62,9 @@ module.exports = {
     }),
     new webpack.ProvidePlugin({
       "React": "react",
-   }),
+    }),
+    new webpack.DefinePlugin({
+      process: {env: {}}
+    })
   ]
 }

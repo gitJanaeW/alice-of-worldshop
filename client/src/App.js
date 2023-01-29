@@ -13,7 +13,7 @@ function App() {
             <Nav/>
             {/* <Suspense fallback={<BeatLoader color={"#123abc"} loading={true}/>}> */}
                 <Routes>
-                    <Route path="/products" element={<Landing/>}/>
+                    <Route path="/" element={<Products/>}/>
                     <Route path="/products" element={<Products/>}/>
                 </Routes>
             {/* </Suspense> */}
