@@ -28,10 +28,14 @@ export default function Products() {
     return (
         <section id="products">
             {products ? products.map((product) => (
-                <div key={product.id} className="product">
-                    <p className="product-text">{product.title.trim()}</p>
+                <div key={product.id} className="product-card">
                     <img className="product-img" src={product.image} alt={product.title}/>
-                    <p className="product-text">${product.price}</p>
+                    <div className="product-text">
+                        <p className="category">{product.category}</p>
+                        <p>{product.title.trim()}</p>
+                        <p className="price">${product.price}</p>
+                    </div>
+                    <button className="add-button">Add to Cart</button>
                 </div>
             )) : null}
         </section>
