@@ -2,7 +2,7 @@ import product from "../../../public/product.jpg";
 
 export default function Landing() {
     return(
-        <section className="beside landing">
+        <section className="beside-center landing">
                 <div className="landing-text">
                     <h1 className="title">Welcome to Alice of ShopWorld</h1>
                     <p className="landing-p">

@@ -22,7 +22,7 @@ export default function Nav() {
     return(
         <header>
             <nav>
-                <div className="beside logo">
+                <div className="beside-center logo">
                     <img className="logo" src={logo} alt="a simplistic, white shopping cart on a pink background"/>
                     <h1>ALICE OF SHOPWORLD</h1>
                 </div>
