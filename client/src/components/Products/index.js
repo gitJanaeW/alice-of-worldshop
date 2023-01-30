@@ -18,6 +18,21 @@ const fetchStore = async  () => {
 
 export default function Products() {
     const [products, setProducts] = useState(null);
+    const [cart, setCart] = useState(JSON.parse(localStorage.getItem("cart")) || []);
+    useEffect(() => {
+        localStorage.setItem("cart", JSON.stringify(cart));
+    }, [cart]);
+    const addToCart = (newProduct) => {
+        const existingProduct = cart.find(product => product.id == newProduct.id);
+        if (existingProduct) {
+            existingProduct.qty++;
+        } else {
+            setCart([
+                ...cart, 
+                {id: newProduct.id, title: newProduct.title, price:newProduct.price, qty: 1}
+            ]);
+        }
+    };
     useEffect(() => {
         async function fetchProducts() {
             const data = await fetchStore();
@@ -27,17 +42,24 @@ export default function Products() {
     }, []);
     return (
         <section id="products">
-            {products ? products.map((product) => (
-                <div key={product.id} className="product-card">
-                    <img className="product-img" src={product.image} alt={product.title}/>
-                    <div className="product-text">
-                        <p className="category">{product.category}</p>
-                        <p>{product.title.trim()}</p>
-                        <p className="price">${product.price}</p>
+            <h2>RESULTS</h2>
+            <div className="products-list">
+                {products ? products.map((product) => (
+                    <div key={product.id} className="product-card">
+                        <div className="item-box">
+                            <img className="cart-img" src={product.image} alt={product.title}/>
+                        </div>
+                        
+                        <div className="product-text">
+                            <p className="category">{product.category}</p>
+                            <p>{product.title.trim()}</p>
+                            <p className="price">${product.price}</p>
+                        </div>
+                        <button className="add-button" onClick={() => addToCart(product)}>Add to Cart</button>
                     </div>
-                    <button className="add-button">Add to Cart</button>
-                </div>
-            )) : null}
+                )) : null}
+            </div>
+            
         </section>
     );
 };
