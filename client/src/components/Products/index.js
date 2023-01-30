@@ -29,7 +29,13 @@ export default function Products() {
         } else {
             setCart([
                 ...cart, 
-                {id: newProduct.id, title: newProduct.title, price:newProduct.price, qty: 1}
+                {
+                    id: newProduct.id,
+                    title: newProduct.title,
+                    price: newProduct.price,
+                    image: newProduct.image,
+                    qty: 1
+                }
             ]);
         }
     };
