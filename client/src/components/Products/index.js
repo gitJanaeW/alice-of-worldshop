@@ -1,16 +1,6 @@
 import { useEffect, useState } from "react";
 import { ADD_PRODUCT, DELETE_PRODUCT } from "../../utils/actions";
 import { useShopContext } from "../../utils/GlobalState";
-// const fetchChimoney = async () => {
-//     const assets = null;
-//     const sdk = require("api")('@chimoney/v0.2.1#2w2jenlbc6ubix');
-//     sdk.auth("5fa47041cf1bca32b11f72a3bac177bcbec210479c06821401b5e3501ca7e262");
-//     try {
-//         return assets = await sdk.getV02InfoAssets();
-//     } catch (err) {
-//         console.log(err);
-//     }
-// };
 
 const fetchStore = async  () => {
     const response = await fetch('https://fakestoreapi.com/products')
@@ -45,7 +35,7 @@ export default function Products() {
                     qty: existingProduct.qty + 1
                 }
             ]);
-            console.log("in existing prod", state.products);
+            console.log("No dispatch. Current state (should be the same):", state.products);
         } else {
             setCart([
                 ...cart,
@@ -54,8 +44,9 @@ export default function Products() {
                     qty: 1
                 }
             ]);
-            dispatch({type: ADD_PRODUCT, payload: [...state.products, newProduct]});
-            console.log("in new prod", state.products)
+            console.log("About to dispatch...");
+            dispatch({type: ADD_PRODUCT, payload: [newProduct]});
+            console.log("New prod added", state.products)
         }
         localStorage.setItem("cart", JSON.stringify(cart));
     };
