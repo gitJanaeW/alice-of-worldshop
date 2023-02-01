@@ -10,6 +10,10 @@ body {
     background-color: var(--bg);
 }
 
+a {
+    color: black;
+}
+
 button {
     border: none;
     background-color: var(--pink);
@@ -31,6 +35,12 @@ button:hover {
     display: flex;
     align-items: center;
     justify-content: space-around;
+}
+
+.text-overflow {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
 }
 
 /* NAV */
@@ -110,38 +120,19 @@ nav {
     align-items: center;
     padding: 8px;
     width: 180px;
-    color: white;
     background-color: var(--pink);
     border-radius: 5px;
     box-shadow: 0 10px 27px rgba(0, 0, 0, 0.05);
+}
+
+.notification a, .notification p {
+    color: white;
 }
 
 .notification img {
     width: 13px;
 }
 
-.notification input {
-    width: 40px;
-    border: none;
-    border-radius: 0;
-    padding: 2px;
-    border-radius: 2px;
-}
-
-.notification button {
-    padding: 2px 4px;
-    margin: 0;
-    color: black;
-    background-color: var(--bg);
-}
-
-#minus {
-    border-radius: 3px 0 0 3px;
-}
-
-#plus {
-    border-radius: 0 3px 3px 0;
-}
 
 /* LANDING */
 .landing {
@@ -196,6 +187,11 @@ nav {
     text-align: center;
 }
 
+.product-name {
+    max-width: 230px;
+    text-align: center;
+}
+
 .category {
     font-size: smaller;
     text-transform: capitalize;
@@ -213,10 +209,12 @@ nav {
 }
 
 .product-text {
-    display: inline;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     margin-top: auto;
-    height: 100px;
-    width: 40%;
+    width: 100%;
 }
 
 .product-text > * {

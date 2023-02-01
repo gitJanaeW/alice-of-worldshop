@@ -57,9 +57,6 @@ export default function Cart() {
                     </div>
                 </div>
             </div>
-            {/* <hr/>
-            <p>Subtotal:</p>
-            <p>HST:</p> */}
             <h3>Total:</h3>
             <button>Checkout</button>
         </section>

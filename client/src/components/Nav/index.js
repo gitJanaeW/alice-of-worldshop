@@ -41,10 +41,10 @@ export default function Nav() {
     return(
         <header>
             <nav>
-                <div className="beside-center logo">
+                <Link to={"/"} className="beside-center logo">
                     <img className="logo" src={logo} alt="a simplistic, white shopping cart on a pink background"/>
                     <h1>ALICE OF SHOPWORLD</h1>
-                </div>
+                </Link>
                 <ul className={`nav-menu ${isOpen ? "active" : ""}`}>
                     <Link to={"/"}>
                         <li className="nav-link">Home</li>
@@ -63,7 +63,8 @@ export default function Nav() {
                     {/* {<img src={state.products[state.products.length - 1].image}/>} */}
                     {/* {state.products ? console.log(state.products[0]) : console.log("not yet")} */}
                     <p>Added to cart!</p>
-                    <input type="number" value="0" id="input"/>
+                    <Link to={"/checkout"}>Edit</Link>
+                    {/* <input type="number" value="0" id="input"/> */}
                     <img src={garbage}/>
                     <p onClick={clearAlert}>╳</p>
                 </div>

@@ -84,11 +84,10 @@ export default function Products() {
                         </div>
                         <div className="product-text">
                             <p className="category">{product.category}</p>
-                            <p>{product.title.trim()}</p>
+                            <p className="product-name text-overflow">{product.title.trim()}</p>
                             <p className="price">${product.price}</p>
                         </div>
                         <button className="add-button" onClick={() => addToCart(product)}>Add to Cart</button>
-                        <button onClick={() => removeFromCart(product)}>Delete</button>
                     </div>
                 )) : null}
             </div>
