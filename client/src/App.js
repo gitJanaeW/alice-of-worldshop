@@ -17,7 +17,7 @@ function App() {
                 <Nav/>
                 {/* <Suspense fallback={<BeatLoader color={"#123abc"} loading={true}/>}> */}
                     <Routes>
-                        <Route path="/" element={<Products/>}/>
+                        <Route path="/" element={<Cart/>}/>
                         <Route path="/products" element={<Products/>}/>
                         <Route path="/checkout" element={<Cart/>}/>
                         <Route path="*" element={<NotFound/>}/>

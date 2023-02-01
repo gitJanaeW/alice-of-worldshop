@@ -60,19 +60,6 @@ export default function Products() {
         localStorage.setItem("cart", JSON.stringify(cart));
     };
     
-    const removeFromCart = (product) => {
-        // const existingProduct = cart.find(product => product.id == product.id);
-        // if (existingProduct.qty > 1) {
-        //     dispatch({type: ADD_PRODUCT, payload: })
-        // } else {
-        //     dispatch({type: DELETE_PRODUCT, payload: product});
-        //     localStorage.setItem("cart", JSON.stringify(state.products));
-        // }
-        console.log("product to delete", product);
-        console.log("cart after producted deleted", cart)
-        dispatch({type: DELETE_PRODUCT, payload: product});
-        localStorage.setItem("cart", JSON.stringify(...cart));
-    }
     return (
         <section id="products">
             <h2>RESULTS</h2>
