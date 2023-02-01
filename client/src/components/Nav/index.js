@@ -2,12 +2,31 @@ import { useEffect, useState, lazy } from "react";
 import { Link } from "react-router-dom";
 import logo from "../../../public/logo2.jpg";
 import cartIcon from "../../../public/cart.png";
+import cartBubble from "../../../public/cartOccupied.png";
+import garbage from "../../../public/garbage.png";
+import { useShopContext } from "../../utils/GlobalState";
 
 export default function Nav() {
     const [isOpen, setIsOpen] = useState(false);
+    const [isHidden, setHidden] = useState(true);
+    const [state, dispatch] = useShopContext();
     const toggleNav = () => {
         setIsOpen(!isOpen);
     };
+    const clearAlert = (e) => {
+        e.preventDefault();
+        if(e.target.innerHTML==="╳"){
+            setHidden(true);
+        }
+    };
+    useEffect(() => {
+        if (state.products[0]) {
+                setHidden(false);
+            setTimeout(() => {
+                setHidden(true);
+            }, 10000)
+        }
+    }, [state.products]);
     // useEffect(() => {
     //     const handleClick = (e) => {
     //         if (!e.target.closest('.nav-menu')) {
@@ -35,15 +54,25 @@ export default function Nav() {
                     </Link>
                     <li className="nav-link">
                         <Link to={"/checkout"}>
-                            <img className="cart-icon" src={cartIcon}/>
+                            <img className="cart-icon" src={state.products[0] ? cartBubble : cartIcon}/>
                         </Link>
                     </li>
                 </ul>
-                <div onClick={toggleNav} onBlur={toggleNav} className={`hamburger ${isOpen ? "active" : ""}`}>
-                    <span className="bar"></span>
-                    <span className="bar"></span>
-                    <span className="bar"></span>
+                {!isHidden && (
+                <div className="notification">
+                    {/* {<img src={state.products[state.products.length - 1].image}/>} */}
+                    {/* {state.products ? console.log(state.products[0]) : console.log("not yet")} */}
+                    <p>Added to cart!</p>
+                    <input type="number" value="0" id="input"/>
+                    <img src={garbage}/>
+                    <p onClick={clearAlert}>╳</p>
                 </div>
+                )}
+                    <div onClick={toggleNav} onBlur={toggleNav} className={`hamburger ${isOpen ? "active" : ""}`}>
+                        <span className="bar"></span>
+                        <span className="bar"></span>
+                        <span className="bar"></span>
+                    </div>
             </nav>
         </header>
         

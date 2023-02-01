@@ -23,12 +23,14 @@ export default function Products() {
     const [state, dispatch] = useShopContext();
 
     useEffect(() => {
-        // localStorage.setItem("cart", JSON.stringify(cart));
+        localStorage.setItem("cart", JSON.stringify(cart));
     }, [cart]);
+
     async function fetchProducts() {
         const data = await fetchStore();
         setProducts(data);
     }
+
     useEffect(() => {
         fetchProducts();
     }, []);
@@ -36,7 +38,6 @@ export default function Products() {
     const addToCart = (newProduct) => {
         const existingProduct = cart.find(product => product.id == newProduct.id);
         if (existingProduct) {
-            console.log("existingProduct", existingProduct);
             setCart([
                 ...cart.filter(product => product.id !== existingProduct.id),
                 {
@@ -44,8 +45,7 @@ export default function Products() {
                     qty: existingProduct.qty + 1
                 }
             ]);
-            console.log("cart after existing prod", cart)
-            localStorage.setItem("cart", JSON.stringify(cart));
+            console.log("in existing prod", state.products);
         } else {
             setCart([
                 ...cart,
@@ -54,38 +54,12 @@ export default function Products() {
                     qty: 1
                 }
             ]);
-            localStorage.setItem("cart", JSON.stringify(cart));
+            dispatch({type: ADD_PRODUCT, payload: [...state.products, newProduct]});
+            console.log("in new prod", state.products)
         }
+        localStorage.setItem("cart", JSON.stringify(cart));
     };
-
-    // const addToCart = (newProduct) => {
-    //     // console.log("cart starting addToCart called", cart)
-    //     const existingProduct = cart.find(product => product.id == newProduct.id);
-    //     // console.log("existingProduct", existingProduct)
-    //     if (existingProduct) {
-    //         setCart([{
-    //             ...existingProduct,
-    //             qty: existingProduct.qty + 1
-    //         }]);
-    //         localStorage.setItem("cart", JSON.stringify(cart));
-    //         dispatch({type: ADD_PRODUCT, payload: existingProduct});
-    //         // console.log("existingProduct state.products", state.products);
-    //         // console.log("cart for existing prod", cart);
-    //     } else {
-    //         setCart([
-    //             ...cart, 
-    //             {
-    //                 id: newProduct.id,
-    //                 qty: 1
-    //             }
-    //         ]);
-    //         localStorage.setItem("cart", JSON.stringify(cart));
-    //         dispatch({type: ADD_PRODUCT, payload: {...newProduct, qty: 1}});
-    //         // console.log("newProduct state.products", state.products)
-    //         console.log("cart for new prod", cart)
-    //     }
-        
-    // }
+    
     const removeFromCart = (product) => {
         // const existingProduct = cart.find(product => product.id == product.id);
         // if (existingProduct.qty > 1) {

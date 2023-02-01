@@ -101,6 +101,48 @@ nav {
     border-radius: 5px;
 }
 
+.notification {
+    position: absolute;
+    top: 60px;
+    left: calc(100% - 80px - 180px);
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 8px;
+    width: 180px;
+    color: white;
+    background-color: var(--pink);
+    border-radius: 5px;
+    box-shadow: 0 10px 27px rgba(0, 0, 0, 0.05);
+}
+
+.notification img {
+    width: 13px;
+}
+
+.notification input {
+    width: 40px;
+    border: none;
+    border-radius: 0;
+    padding: 2px;
+    border-radius: 2px;
+}
+
+.notification button {
+    padding: 2px 4px;
+    margin: 0;
+    color: black;
+    background-color: var(--bg);
+}
+
+#minus {
+    border-radius: 3px 0 0 3px;
+}
+
+#plus {
+    border-radius: 0 3px 3px 0;
+}
+
 /* LANDING */
 .landing {
     background-color: var(--bg);
