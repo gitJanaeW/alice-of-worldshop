@@ -45,7 +45,7 @@ export default function Products() {
                 }
             ]);
             console.log("About to dispatch...");
-            dispatch({type: ADD_PRODUCT, payload: [newProduct]});
+            dispatch({type: ADD_PRODUCT, payload: newProduct});
             console.log("New prod added", state.products)
         }
         localStorage.setItem("cart", JSON.stringify(cart));
