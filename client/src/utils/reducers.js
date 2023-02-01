@@ -14,7 +14,10 @@ export const productReducer = () => {
                     return {
                         ...state,
                         products: state.products.filter(
-                            (product) => product.id !== action.payload.id
+                            (product) => {
+                                product.id !== action.payload.id;
+                                console.log("action.payload", action.payload);
+                            }
                         )
                     };
                 default:
