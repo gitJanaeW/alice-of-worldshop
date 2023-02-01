@@ -35,7 +35,6 @@ export default function Products() {
                     qty: existingProduct.qty + 1
                 }
             ]);
-            console.log("No dispatch. Current state (should be the same):", state.products);
         } else {
             setCart([
                 ...cart,
@@ -44,9 +43,7 @@ export default function Products() {
                     qty: 1
                 }
             ]);
-            console.log("About to dispatch...");
             dispatch({type: ADD_PRODUCT, payload: newProduct});
-            console.log("New prod added", state.products)
         }
         localStorage.setItem("cart", JSON.stringify(cart));
     };
