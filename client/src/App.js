@@ -1,6 +1,5 @@
 import React, {Suspense, lazy} from "react";
 import {BrowserRouter, Routes, Route} from "react-router-dom";
-import {BeatLoader} from "react-spinners";
 import {ShopProvider} from "./utils/GlobalState";
 import Nav from "./components/Nav";
 import Landing from "./components/Landing";

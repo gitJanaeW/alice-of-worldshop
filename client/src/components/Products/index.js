@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
-import { ADD_PRODUCT, DELETE_PRODUCT } from "../../utils/actions";
+import ClipLoader from "react-spinners/ClipLoader";
+import { ADD_PRODUCT} from "../../utils/actions";
 import { useShopContext } from "../../utils/GlobalState";
 
 const fetchStore = async  () => {
@@ -64,7 +65,11 @@ export default function Products() {
                         </div>
                         <button className="add-button" onClick={() => addToCart(product)}>Add to Cart</button>
                     </div>
-                )) : null}
+                )) : 
+                <div className="loading-icon">
+                    <ClipLoader color="#fd316e"/>
+                </div>
+                }
             </div>
         </section>
     );
