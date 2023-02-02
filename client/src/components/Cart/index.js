@@ -14,6 +14,27 @@ export default function Cart() {
         dispatch({type: DELETE_PRODUCT, payload: cartItem});
     };
 
+    const updateStorage = (cartItem, eventValue) => {
+        const qty = eventValue;
+        const updatedCart = cart.map(product => {
+            if (product.id === cartItem.id) {
+                return { ...product, qty };
+            }
+            return product;
+        });
+        setCart(updatedCart);
+        localStorage.setItem("cart", JSON.stringify(updatedCart));
+    };
+
+    const totalCart = (cart) => {
+        let total = 0;
+        cart.forEach(item => {
+            const product = products.find(product=> product.id === item.id);
+            total += product.price * item.qty;
+        });
+        return total.toFixed(2);
+    };
+
     return (
         <section id="cart">
             {console.log(products)}
@@ -40,20 +61,19 @@ export default function Cart() {
                                 <p>In stock</p>
                                 <p>{product.description}</p>
                                 <div className="beside-center">
-                                    <select name="qty">
+                                    <select onChange={(e) => updateStorage(product, e.target.value)} name="qty">
                                         <option value="currentQty">
                                             {cart.find(item => item.id == product.id).qty}
-                                            <hr/>
                                         </option>
-                                        <option value="one">1</option>
-                                        <option value="two">2</option>
-                                        <option value="three">3</option>
-                                        <option value="four">4</option>
-                                        <option value="five">5</option>
-                                        <option value="six">6</option>
-                                        <option value="seven">7</option>
-                                        <option value="eight">8</option>
-                                        <option value="nine">9</option>
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+                                        <option value="5">5</option>
+                                        <option value="6">6</option>
+                                        <option value="7">7</option>
+                                        <option value="8">8</option>
+                                        <option value="9">9</option>
                                     </select>
                                     <p onClick={() => deleteFromCart(product)}>Delete</p>
                                 </div>
@@ -67,7 +87,7 @@ export default function Cart() {
             }
             {products[0] && (
                 <>
-                    <h3>Total:</h3>
+                    <h3>Total: ${totalCart(cart)}</h3>
                     <button>Checkout</button>
                 </>
             )
