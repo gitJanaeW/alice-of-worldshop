@@ -1,17 +1,22 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { useShopContext } from "../../utils/GlobalState";
+import { DELETE_PRODUCT } from "../../utils/actions";
 
 export default function Cart() {
     const [{products}, dispatch] = useShopContext();
     const [cart, setCart] = useState(JSON.parse(localStorage.getItem("cart")) || []);
 
-    const removeFromCart = () => {
-        
+    const deleteFromCart = (cartItem) => {
+        const updatedCart = cart.filter(product => product.id !== cartItem.id);
+        setCart(updatedCart);
+        localStorage.setItem("cart", JSON.stringify(updatedCart));
+        dispatch({type: DELETE_PRODUCT, payload: cartItem});
     };
 
     return (
         <section id="cart">
+            {console.log(products)}
             <h2>Shopping Cart</h2>
             {products !== [] && (
                 <>
@@ -38,8 +43,8 @@ export default function Cart() {
                                     <select name="qty">
                                         <option value="currentQty">
                                             {cart.find(item => item.id == product.id).qty}
+                                            <hr/>
                                         </option>
-                                        <hr/>
                                         <option value="one">1</option>
                                         <option value="two">2</option>
                                         <option value="three">3</option>
@@ -50,7 +55,7 @@ export default function Cart() {
                                         <option value="eight">8</option>
                                         <option value="nine">9</option>
                                     </select>
-                                    <p onClick={deleteFromCart}>Delete</p>
+                                    <p onClick={() => deleteFromCart(product)}>Delete</p>
                                 </div>
                                 
                             </div>

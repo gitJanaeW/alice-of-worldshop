@@ -27,17 +27,6 @@ export default function Nav() {
             }, 10000)
         }
     }, [state.products]);
-    // useEffect(() => {
-    //     const handleClick = (e) => {
-    //         if (!e.target.closest('.nav-menu')) {
-    //             setIsOpen(false);
-    //         }
-    //     };
-    //     document.addEventListener('click', handleClick);
-    //     return () => {
-    //         document.removeEventListener('click', handleClick);
-    //     };
-    // }, [isOpen]);
     return(
         <header>
             <nav>
@@ -60,12 +49,8 @@ export default function Nav() {
                 </ul>
                 {!isHidden && (
                 <div className="notification">
-                    {/* {<img src={state.products[state.products.length - 1].image}/>} */}
-                    {/* {state.products ? console.log(state.products[0]) : console.log("not yet")} */}
-                    <p>Added to cart!</p>
+                    <p>Cart has been updated!</p>
                     <Link to={"/checkout"}>Edit</Link>
-                    {/* <input type="number" value="0" id="input"/> */}
-                    <img src={garbage}/>
                     <p onClick={clearAlert}>╳</p>
                 </div>
                 )}
