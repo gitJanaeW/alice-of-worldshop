@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import { useShopContext } from "../../utils/GlobalState";
 import { DELETE_PRODUCT } from "../../utils/actions";
@@ -88,7 +88,7 @@ export default function Cart() {
             {products[0] && (
                 <>
                     <h3>Total: ${totalCart(cart)}</h3>
-                    <button>Checkout</button>
+                    <Link to="/order"><button>Checkout</button></Link>
                 </>
             )
             }
