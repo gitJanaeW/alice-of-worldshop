@@ -27,11 +27,14 @@ Create a checkout experience that stores a user's cart in localStorage
 
 
 ## Approach
-I was hoping to use the Chimoney API but, in the interest of time, went with a simple API (https://fakestoreapi.com/docs). I first built out the UI statically to get a sense of what functionality would be need on-click, on-load and so on. Then from there, I went on to dynamically generate the pages required.
+I was hoping to use the Chimoney API but, in the interest of time and showcasing as much as I could in the time alotted, went with a simple API (https://fakestoreapi.com/docs). I first built out the UI statically to get a sense of what functionality would be need on-click, on-load and so on. Then from there, I went on to dynamically generate the pages required.
 
 ## Future Improvments
-- Taking advantage of React's lazy loading functionality for performance
-- limit the file size of images for performance
+- Jest tests to prevent bugs in the future
+- Paginating of the fetch request
+- Cache fetched data for offline browsing
+- Limit the file size of images for performance
+- Use react-lazyload module to render images only when they're needed for faster load time
 
 ## Created By:
 Janae Welsh
