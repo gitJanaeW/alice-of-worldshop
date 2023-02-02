@@ -1,6 +1,6 @@
 import { useEffect, useState, lazy } from "react";
 import { Link } from "react-router-dom";
-import logo from "../../../public/logo2.jpg";
+import logo from "../../../public/logo.jpg";
 import cartIcon from "../../../public/cart.png";
 import cartBubble from "../../../public/cartOccupied.png";
 import garbage from "../../../public/garbage.png";

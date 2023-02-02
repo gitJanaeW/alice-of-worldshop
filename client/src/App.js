@@ -9,22 +9,18 @@ import Cart from "./components/Cart";
 import Order from "./components/Order";
 import NotFound from "./components/NotFound";
 
-// const Products = lazy(() => import("./components/Products"));
-
 function App() {
     return (
         <BrowserRouter>
             <ShopProvider>
                 <Nav/>
-                {/* <Suspense fallback={<BeatLoader color={"#123abc"} loading={true}/>}> */}
                     <Routes>
-                        <Route path="/" element={<Products/>}/>
+                        <Route path="/" element={<Landing/>}/>
                         <Route path="/products" element={<Products/>}/>
                         <Route path="/checkout" element={<Cart/>}/>
                         <Route path="/order" element={<Order/>}/>
                         <Route path="*" element={<NotFound/>}/>
                     </Routes>
-                {/* </Suspense> */}
             </ShopProvider>
         </BrowserRouter>
     );

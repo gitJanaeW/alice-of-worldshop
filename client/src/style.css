@@ -101,7 +101,6 @@ nav {
 }
 
 .cart-icon {
-    /* margin-top: 3px; */
     max-height: 25px;
 }
 
@@ -178,7 +177,7 @@ nav {
 .product-card {
     margin: 5px;
     padding-top: 5px;
-    max-width: 20%;
+    max-width: 220px;
     width: 250px;
     height: 300px;
     background-color: white;
@@ -188,7 +187,7 @@ nav {
 }
 
 .product-name {
-    max-width: 230px;
+    max-width: 210px;
     text-align: center;
 }
 
@@ -318,10 +317,26 @@ select {
     }
 
     .hamburger.active .bar:nth-child(1) {
-        transform: translateY(7px) rotate(45deg);
+        transform: translateY(8px) rotate(45deg);
+        border-radius: 3px;
     }
 
     .hamburger.active .bar:nth-child(3) {
-        transform: translateY(-7px) rotate(-45deg);
+        transform: translateY(-8px) rotate(-45deg);
+        border-radius: 3px;
+    }
+}
+
+@media only screen and (max-width: 1050px) {
+    .landing {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .landing-p {
+        margin: 0px;
+        width: 95%;
     }
 }
